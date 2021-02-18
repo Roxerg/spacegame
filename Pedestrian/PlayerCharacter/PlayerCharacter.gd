@@ -21,14 +21,10 @@ func _ready():
 func move(amount):
 	move_and_slide(amount)
 	
-func handle_mouse_rotato():
-	var mouseposition = get_local_mouse_position()
-	rotation += mouseposition.angle() * 0.1
-	
 func _process(delta):
-	pass
-	#mouseposition = get_local_mouse_position()
-	#rotation += mouseposition.angle() * 0.1
+	mouseposition = get_local_mouse_position()
+	rotation += mouseposition.angle() * 0.1
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

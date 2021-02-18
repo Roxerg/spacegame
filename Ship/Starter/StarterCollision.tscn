@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Ship/Starter/Starter.png" type="Texture" id=1]
+[ext_resource path="res://Ship/Starter/StarterCollision.gd" type="Script" id=2]
+[ext_resource path="res://Particles/Flame.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 56.2493, 21.7158 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 55.0364
+
+[sub_resource type="RayShape2D" id=4]
+length = 20.2899
+
+[node name="StarterCollision" type="RigidBody2D"]
+collision_layer = 524288
+collision_mask = 524288
+mass = 10.0
+gravity_scale = 0.0
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.361687, 0.0770078 )
+rotation = -1.5708
+scale = Vector2( 4, 4 )
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2.7182, -1.54807 )
+shape = SubResource( 2 )
+
+[node name="InteractionZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
+position = Vector2( 1.15109, 0.938053 )
+shape = SubResource( 3 )
+
+[node name="ExitArea1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea1"]
+position = Vector2( -0.0146942, -32.6302 )
+rotation = 3.07721
+shape = SubResource( 4 )
+
+[node name="ExitArea2" type="Area2D" parent="."]
+position = Vector2( -0.700722, 0.732871 )
+rotation = 3.12272
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea2"]
+position = Vector2( -0.0146942, -32.6302 )
+rotation = 3.07721
+shape = SubResource( 4 )
+
+[node name="Thrusters" type="Node2D" parent="."]
+
+[node name="BackThruster" parent="Thrusters" instance=ExtResource( 4 )]
+position = Vector2( 53.1517, 3.16045 )
+rotation = -1.57835
+scale = Vector2( 2, 2 )
+z_index = -2
+
+[node name="RighThruster" parent="Thrusters" instance=ExtResource( 4 )]
+position = Vector2( 33.6359, -18.9202 )
+rotation = 3.14159
+z_index = -2
+
+[node name="LeftThruster" parent="Thrusters" instance=ExtResource( 4 )]
+position = Vector2( 29.4314, 20.1815 )
+z_index = -2
+
+[node name="FrontThruster" parent="Thrusters" instance=ExtResource( 4 )]
+position = Vector2( -50.0333, -5.04538 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+z_index = -2
+[connection signal="body_entered" from="InteractionZone" to="." method="_on_InteractionZone_body_entered"]
+[connection signal="body_exited" from="InteractionZone" to="." method="_on_InteractionZone_body_exited"]

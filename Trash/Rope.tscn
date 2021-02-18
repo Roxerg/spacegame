@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Trash/Rope.gd" type="Script" id=1]
+[ext_resource path="res://Trash/hangings/clothing/4.png" type="Texture" id=2]
 
 [node name="Node2D" type="Node2D"]
 
@@ -10,12 +11,16 @@ autostart = true
 
 [node name="Rope" type="Node2D" parent="."]
 script = ExtResource( 1 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
+no_of_dots = 10
 
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="Baboi" type="Sprite" parent="."]
+position = Vector2( 13.3671, -0.0409067 )
+rotation = 1.56978
+scale = Vector2( 1, 5.66997 )
+texture = ExtResource( 2 )
 [connection signal="timeout" from="Timer" to="Rope" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="Rope" method="_on_Timer2_timeout"]

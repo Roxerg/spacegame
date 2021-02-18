@@ -8,6 +8,8 @@
 [ext_resource path="res://Land/Island1/Island1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://icon.png" type="Texture" id=7]
 
+
+
 [node name="Node2D" type="Node2D"]
 position = Vector2( 426.215, 273.298 )
 script = ExtResource( 3 )

@@ -38,6 +38,11 @@ func _ready():
 func _process(delta):
 	
 	
+	if current_ship:
+		current_ship.handle_mouse_rotato()
+	elif current_pedestrian:
+		current_pedestrian.handle_mouse_rotato()
+	
 	velocity = Vector2()  # The player's movement vector.
 	
 	if Input.is_action_pressed("up"):

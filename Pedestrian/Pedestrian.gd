@@ -7,12 +7,17 @@ var velocity = Vector2();
 const is_pedestrian = true
 const is_ship = false
 
+var playernode;
 var is_player = false
 
 var health : int;
 var speed : int;
 
-
+func handle_mouse_rotato():
+	if physics:
+		physics.handle_mouse_rotato()
+	
+	
 func enter_player(playerNode):
 	add_child(playerNode)
 

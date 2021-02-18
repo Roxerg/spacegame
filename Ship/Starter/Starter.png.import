@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/island.png-77558adf00efe2e86b8af563550f5fe2.stex"
+path="res://.import/Starter.png-9f34855ff8758805b41e677db6766216.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Land/Island1/island.png"
-dest_files=[ "res://.import/island.png-77558adf00efe2e86b8af563550f5fe2.stex" ]
+source_file="res://Ship/Starter/Starter.png"
+dest_files=[ "res://.import/Starter.png-9f34855ff8758805b41e677db6766216.stex" ]
 
 [params]
 

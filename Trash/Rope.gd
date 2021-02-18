@@ -36,11 +36,12 @@ func repick_clothes():
 		if i in clothes:
 			segs[i].get_child(0).visible = true
 
-	
-	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	var b = get_parent().get_node("Baboi")
+	b.hide()
 	
 	
 	rng.randomize()
@@ -73,6 +74,7 @@ func _ready():
 
 func _draw():
 	
+	
 	var segs_no = get_child_count()
 	var segs = get_children()
 	for i in range(0, segs_no-1):
@@ -84,6 +86,7 @@ func _draw():
 var t = 0
 var t_incr = 0.2
 func _process(delta):
+	
 	
 	var boi = true
 	for seg in get_children():

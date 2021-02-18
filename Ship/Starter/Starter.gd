@@ -2,7 +2,7 @@ extends Node2D
 
 
 
-var speed = 40000
+var speed = 10000
 var torque = 8000
 var health = 400
 
@@ -15,5 +15,6 @@ func _ready():
 	get_parent().ship_type = self	
 
 
+	
 func test():
 	print("WOOO")

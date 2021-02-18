@@ -61,11 +61,28 @@ func handle_down(delta):
 	physics.down = true
 	
 func handle_left(delta):
-	physics.rotato += torque
+	physics.rotato += torque + torque*delta*0.1 
 	physics.left = true
 func handle_right(delta):
-	physics.rotato += torque
+	physics.rotato += torque + torque*delta*0.1
 	physics.right = true
+	
+
+func handle_mouse_rotato():
+	var r = physics.get_mouse_angle()
+	var diff = 180-abs(rad2deg(r))
+	#print("diff {a} r {b}".format({"a" : diff, "b" : r}))
+	if diff > 5:
+		if r > 0:
+			handle_left(diff)
+		elif r < 0:
+			handle_right(diff)
+	else:
+		print("SADADA")
+		physics.angular_velocity = physics.angular_velocity/1.5
+		
+	
+	
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
